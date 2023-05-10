@@ -1,0 +1,30 @@
+{
+  "name": "notes-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "workspaces":[
+    "frontend",
+    "backend"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build --workspace=frontend",
+    "start": "npm run start --workspace=backend",
+    "dev:backend": "npm run build && npm run dev --workspace=backend",
+    "dev:frontend": "npm run build && npm run dev --workspace=frontend"
+  },
+  "devDependencies": {
+    "eslint": "^8.39.0",
+    "standard": "^17.0.0"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json",
+    "env": {
+      "jest": true
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

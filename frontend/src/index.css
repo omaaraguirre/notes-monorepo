@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mesh-gradient {
+  background-color: #9999ff;
+  background-image:
+    radial-gradient(at 48% 0%, hsla(104, 65%, 66%, 1) 0px, transparent 50%),
+    radial-gradient(at 94% 9%, hsla(138, 99%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 79% 73%, hsla(223, 76%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 14% 73%, hsla(294, 60%, 77%, 1) 0px, transparent 50%),
+    radial-gradient(at 91% 85%, hsla(249, 98%, 78%, 1) 0px, transparent 50%),
+    radial-gradient(at 2% 93%, hsla(10, 89%, 71%, 1) 0px, transparent 50%),
+    radial-gradient(at 27% 62%, hsla(88, 98%, 67%, 1) 0px, transparent 50%);
+}
+
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #0000ff80 transparent;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}

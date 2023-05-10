@@ -1,0 +1,24 @@
+### Get all users
+GET http://localhost:8080/api/users
+
+### Get a single user
+GET http://localhost:8080/api/users/64518e7af2088df493503e48
+
+### Create a user
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "username": "usertest",
+  "name": "User Test",
+  "password": "password"
+}
+
+### User Login
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+    "username": "user",
+    "password": "pass"
+}
