@@ -5,6 +5,7 @@ import connectMongo from './mongo.js'
 import usersRouter from './controllers/users.js'
 import notesRouter from './controllers/notes.js'
 import accRouter from './controllers/acc.js'
+import path from 'path'
 
 dotenv.config()
 const { MONGODB_URI, MONGODB_URI_TEST, NODE_ENV } = process.env
@@ -21,9 +22,7 @@ app.use('/api/notes', notesRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/auth', accRouter)
 
-app.use((req, res) => { // middleware for handling unknown routes
-  res.status(404).end()
-})
+app.use((req, res) => res.sendFile(path.resolve('../app/dist/index.html')))
 
 app.use((error, req, res, next) => { // middleware for handling errors
   switch (error.name) {
