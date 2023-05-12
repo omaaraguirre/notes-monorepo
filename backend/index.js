@@ -22,7 +22,7 @@ app.use('/api/notes', notesRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/auth', accRouter)
 
-app.use((req, res) => res.sendFile(path.resolve('../app/dist/index.html')))
+app.use((req, res) => res.sendFile(path.resolve('../frontend/dist/index.html')))
 
 app.use((error, req, res, next) => { // middleware for handling errors
   switch (error.name) {
