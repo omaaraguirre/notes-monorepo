@@ -5,7 +5,6 @@ import connectMongo from './mongo.js'
 import usersRouter from './controllers/users.js'
 import notesRouter from './controllers/notes.js'
 import accRouter from './controllers/acc.js'
-import path from 'path'
 
 dotenv.config()
 const { MONGODB_URI, MONGODB_URI_TEST, NODE_ENV } = process.env
@@ -15,14 +14,14 @@ connectMongo(connectionString, NODE_ENV)
 const app = express()
 app.use(cors())
 app.use(express.json()) // middleware for parsing application/json
-
-app.use(express.static('../frontend/dist'))
+// app.use(express.static('../frontend/dist'))
 
 app.use('/api/notes', notesRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/auth', accRouter)
 
-app.use((req, res) => res.sendFile(path.resolve('../frontend/dist/index.html')))
+app.use((req, res) => res.status(404).send({ error: 'Not found' }))
+// app.use((req, res) => res.sendFile(path.resolve('../frontend/dist/index.html')))
 
 app.use((error, req, res, next) => { // middleware for handling errors
   switch (error.name) {
