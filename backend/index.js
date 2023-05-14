@@ -37,9 +37,9 @@ app.use((error, req, res, next) => { // middleware for handling errors
   }
 })
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 8080
 const server = app.listen(PORT, () => {
-  console.log(`Server running on \thttp://localhost:${PORT}`)
+  console.log(`Server running on port: ${PORT}`)
 })
 
 export { app, server }
