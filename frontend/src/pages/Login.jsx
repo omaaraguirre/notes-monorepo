@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import showToast from '../utils/toast'
 import useAuth from '../hooks/useAuth'
+import { BACKEND_URL } from '../utils/cfg'
 
 const Login = () => {
   const [username, setUsername] = useState('')
@@ -15,7 +16,7 @@ const Login = () => {
       return showToast('Todos los campos son obligatorios')
     }
 
-    fetch('/api/users/login', {
+    fetch(`${BACKEND_URL}/api/users/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

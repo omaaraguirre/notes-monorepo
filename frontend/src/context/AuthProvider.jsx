@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
 import showToast from '../utils/toast'
+import { BACKEND_URL } from '../utils/cfg'
 
 const AuthContext = createContext()
 
@@ -22,7 +23,7 @@ export const AuthProvider = ({ children }) => {
       }
 
       try {
-        const res = await fetch('/api/auth/', config)
+        const res = await fetch(`${BACKEND_URL}/api/auth/`, config)
         const data = await res.json()
         setAuth(data)
       } catch (error) {

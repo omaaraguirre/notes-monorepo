@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
 import showToast from '../utils/toast'
+import { BACKEND_URL } from '../utils/cfg'
 
 export const NotesContext = createContext()
 
@@ -9,7 +10,7 @@ export const NotesProvider = ({ children }) => {
   useEffect(() => {
     const token = window.localStorage.getItem('token')
 
-    fetch('/api/notes', {
+    fetch(`${BACKEND_URL}/api/notes`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`
@@ -38,7 +39,7 @@ export const NotesProvider = ({ children }) => {
   const deleteNote = (id) => {
     // TODO: Delete note from database
     const token = window.localStorage.getItem('token')
-    fetch(`/api/notes/${id}`, {
+    fetch(`${BACKEND_URL}/api/notes/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

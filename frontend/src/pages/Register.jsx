@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import showToast from '../utils/toast'
+import { BACKEND_URL } from '../utils/cfg'
 
 const Login = () => {
   const [username, setUsername] = useState('')
@@ -19,7 +20,7 @@ const Login = () => {
       return showToast('Las contraseñas no coinciden')
     }
 
-    fetch('/api/users/register', {
+    fetch(`${BACKEND_URL}/api/users/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

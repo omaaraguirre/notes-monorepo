@@ -1,6 +1,7 @@
 import useNote from '../hooks/useNote'
 import { useState } from 'react'
 import showToast from '../utils/toast'
+import { BACKEND_URL } from '../utils/cfg'
 
 const Form = ({ onFinish }) => {
   const { updateNotes } = useNote()
@@ -24,7 +25,7 @@ const Form = ({ onFinish }) => {
 
     const token = window.localStorage.getItem('token')
 
-    fetch('/api/notes', {
+    fetch(`${BACKEND_URL}/api/notes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
