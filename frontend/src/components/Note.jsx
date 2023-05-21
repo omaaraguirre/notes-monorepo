@@ -19,7 +19,7 @@ const Note = ({ note }) => {
               </span>
           }
         </div>
-        <p className='text-gray-500'>
+        <p className='text-gray-500 text-xs '>
           {hora} <span className='ml-1'>{fecha.toLocaleDateString()}</span>
         </p>
         <button
@@ -29,7 +29,7 @@ const Note = ({ note }) => {
           <Xmark />
         </button>
       </header>
-      <p className='roboto'>{content}</p>
+      <p className='roboto mt-2'>{content}</p>
     </div>
   )
 }
