@@ -37,8 +37,8 @@ const Login = () => {
   }
 
   return (
-    <div className='montserrat w-11/12 max-w-xl rounded-sm p-5 bg-white/10 backdrop-blur-xl shadow-md shadow-black/50'>
-      <h2 className='text-3xl mb-3 text-center'>Login</h2>
+    <div className='ubuntu w-11/12 max-w-xl rounded-sm p-5 bg-white/10 backdrop-blur-xl shadow-md shadow-black/50'>
+      <h2 className='montserrat text-3xl mb-3 text-center'>Login</h2>
       <form
         className='flex flex-col gap-3 items-center'
         onSubmit={handleSubmit}

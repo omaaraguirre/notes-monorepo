@@ -20,7 +20,6 @@ const noteSchema = new mongoose.Schema({ // Definir el esquema de la base de dat
   }
 })
 
-// Transformar el objeto que se devuelve al cliente para que no se muestre el _id y se muestre id en su lugar (por defecto se muestra _id)
 noteSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id // Almacenar el _id en id

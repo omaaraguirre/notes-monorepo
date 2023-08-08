@@ -37,7 +37,6 @@ export const NotesProvider = ({ children }) => {
   }
 
   const deleteNote = (id) => {
-    // TODO: Delete note from database
     const token = window.localStorage.getItem('token')
     fetch(`${BACKEND_URL}/api/notes/${id}`, {
       method: 'DELETE',

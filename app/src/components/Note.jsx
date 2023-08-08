@@ -9,7 +9,7 @@ const Note = ({ note }) => {
   const hora = fecha.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'America/Chicago' }).toUpperCase()
 
   return (
-    <div className='roboto p-2 bg-white/30 backdrop-blur-xl hover:bg-white/50'>
+    <div className='ubuntu p-2 bg-white/30 backdrop-blur-xl hover:bg-white/50'>
       <header className='flex gap-2'>
         <div className='flex-1'>
           {
@@ -29,7 +29,7 @@ const Note = ({ note }) => {
           <Xmark />
         </button>
       </header>
-      <p className='roboto mt-2'>{content}</p>
+      <p className='mt-2'>{content}</p>
     </div>
   )
 }
