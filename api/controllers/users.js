@@ -2,16 +2,19 @@ import Router from 'express'
 import User from '../models/User.js'
 import bcrypt from 'bcrypt'
 import generarJWT from '../helpers/generarJWT.js'
+import checkAuth from '../middleWare/authMiddleware.js'
 
 const usersRouter = Router()
 
-usersRouter.get('/', async (req, res, next) => {
+// Get all users
+usersRouter.get('/', checkAuth, async (req, res, next) => {
   await User.find({}).populate('notes', { content: 1, date: 1 })
     .then(users => res.json(users))
     .catch(error => next(error))
 })
 
-usersRouter.get('/:id', async (req, res, next) => {
+// Get user by id
+usersRouter.get('/:id', checkAuth, async (req, res, next) => {
   const { id } = req.params
   User.findById(id)
     .then(user => {
@@ -23,6 +26,7 @@ usersRouter.get('/:id', async (req, res, next) => {
     .catch(error => next(error))
 })
 
+// Create user
 usersRouter.post('/', async (req, res, next) => {
   const { username, name, password } = req.body
 
@@ -42,6 +46,7 @@ usersRouter.post('/', async (req, res, next) => {
   }
 })
 
+// Login
 usersRouter.post('/login', async (req, res, next) => {
   const { username, password } = req.body
 
@@ -73,6 +78,7 @@ usersRouter.post('/login', async (req, res, next) => {
   })
 })
 
+// Register
 usersRouter.post('/register', async (req, res, next) => {
   const { name, username, password } = req.body
 
