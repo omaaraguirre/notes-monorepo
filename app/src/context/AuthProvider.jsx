@@ -25,11 +25,18 @@ export const AuthProvider = ({ children }) => {
       try {
         const res = await fetch(`${BACKEND_URL}/api/auth/`, config)
         const data = await res.json()
+        if (!res.ok) {
+          if (data.error === 'TokenExpiredError') {
+            return window.localStorage.removeItem('token')
+          }
+          throw new Error(data.error)
+        }
         setAuth(data)
       } catch (error) {
         showToast(error.message)
+      } finally {
+        setLoading(false)
       }
-      setLoading(false)
     }
     autenticar()
   }, [])

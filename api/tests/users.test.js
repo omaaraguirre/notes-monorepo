@@ -71,7 +71,7 @@ describe('creating a new user', () => {
     expect(usersAtEnd).toHaveLength(usersAtStart.length)
   })
 
-  afterAll(() => {
+  afterAll(async () => {
     mongoose.connection.close()
     server.close()
   })

@@ -2,9 +2,7 @@
   "name": "notes-app",
   "private": true,
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
-  "author": "",
+  "author": "omaaraguirre@hotmail.com",
   "license": "ISC",
   "workspaces": [
     "api",
@@ -17,7 +15,7 @@
     "dev:app": "npm run dev --workspace=app"
   },
   "devDependencies": {
-    "eslint": "^8.46.0",
+    "eslint": "^8.54.0",
     "standard": "^17.1.0"
   },
   "eslintConfig": {

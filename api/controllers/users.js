@@ -74,7 +74,7 @@ usersRouter.post('/login', async (req, res, next) => {
     id: user._id,
     username: user.username,
     name: user.name,
-    token: generarJWT(user)
+    token: generarJWT(user._id)
   })
 })
 

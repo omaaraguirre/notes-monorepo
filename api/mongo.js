@@ -1,11 +1,9 @@
 import mongoose from 'mongoose'
+import { IS_TEST, MONGO_URI } from './config.js'
 
-const connectMongo = (connectionString, env) => {
-  mongoose.connect(connectionString, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-    .then(() => console.log(`Connected to MongoDB in ${env} mode`))
+const connectMongo = () => {
+  mongoose.connect(MONGO_URI)
+    .then(() => console.log(`Connected to MongoDB ${IS_TEST ? '(testing)' : ''}`))
     .catch(error => console.log('Error connecting to MongoDB:', error.message))
 }
 

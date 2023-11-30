@@ -50,6 +50,7 @@ const Login = () => {
             value={username}
             className='p-2 bg-white/80 backdrop-blur-xl rounded-md focus:outline-none focus:ring-2 focus:ring-black/20'
             onChange={(e) => setUsername(e.target.value)}
+            autoFocus
           />
         </label>
         <label className='flex flex-col gap-1 w-full'>

@@ -1,28 +1,24 @@
-import dotenv from 'dotenv'
+import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
 import connectMongo from './mongo.js'
 import usersRouter from './controllers/users.js'
 import notesRouter from './controllers/notes.js'
 import accRouter from './controllers/acc.js'
+import { PORT, WHITELISTED_DOMAINS } from './config.js'
 
-dotenv.config()
-const { MONGODB_URI, MONGODB_URI_TEST, NODE_ENV } = process.env
-const connectionString = NODE_ENV === 'test' ? MONGODB_URI_TEST : MONGODB_URI
-connectMongo(connectionString, NODE_ENV)
+connectMongo()
 
-const app = express()
-app.use(cors())
+export const app = express()
+app.use(cors(
+  { origin: WHITELISTED_DOMAINS }
+))
 app.use(express.json())
-// app.use(express.static('../app/dist'))
 
 app.use('/api/notes', notesRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/auth', accRouter)
-
 app.use((req, res) => res.status(404).send({ error: 'Not found' }))
-// app.use((req, res) => res.sendFile(path.resolve('../app/dist/index.html')))
-
 app.use((error, req, res, next) => {
   switch (error.name) {
     case 'CastError':
@@ -36,9 +32,6 @@ app.use((error, req, res, next) => {
   }
 })
 
-const PORT = process.env.PORT || 3000
-const server = app.listen(PORT, () => {
+export const server = app.listen(PORT, () => {
   console.log('Server running')
 })
-
-export { app, server }
